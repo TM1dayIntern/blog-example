@@ -281,17 +281,17 @@ private
 </code></pre><p>/app/views/articles/_form.html.erbから以下を削除してください。<br>ライター、作成日時、更新日時のフォームを削除します。</p>
 <pre><code>&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"field"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.label</span> <span class="hljs-attr">:writer</span> %&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.text_field</span> <span class="hljs-attr">:writer</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:article_writer</span> %&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.text_field</span> <span class="hljs-attr">:writer</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:writer</span> %&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 
 &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"field"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.label</span> <span class="hljs-attr">:created_at</span> %&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.date_select</span> <span class="hljs-attr">:created_at</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:article_created_at</span> %&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.date_select</span> <span class="hljs-attr">:created_at</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:created_at</span> %&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 
 &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"field"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.label</span> <span class="hljs-attr">:updated_at</span> %&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.date_select</span> <span class="hljs-attr">:updated_at</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:article_updated_at</span> %&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.date_select</span> <span class="hljs-attr">:updated_at</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:updated_at</span> %&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 </code></pre><p>会員限定機能を確認してみましょう。<br>Windows Powershellで下記のコマンドを実行し、Railsサーバーを起動させ、<a href="http://localhost:3000">http://localhost:3000</a> にアクセスしてください。</p>
 <pre><code><span class="hljs-attribute">rails</span> s
