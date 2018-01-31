@@ -360,6 +360,7 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 <br /><h2 id="wow1_12" class="wow_head">デザイン</h2>
 <h4 id="wow1_12_1" class="wow_head">ページが味気ないのでデザインをしてみましょう。</h4>
 <h4 id="wow1_12_2" class="wow_head">今回はBootstrapを使用してデザインしたいと思います。</h4>
+<p>Bootstrapというのは、指定されたHTML構成に指定されたclass名をつけることで、デザインを行なってくれるフレームワークです。</p>
 <p>/app/views/layouts/application.html.erbの<code>&lt;title&gt;BlogExample&lt;/title&gt;</code>の後に下記を追加してください。<br>Bootstrapを使用するために必要になります。</p>
 <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
@@ -374,6 +375,9 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 <ul>
 <li>ユーザー一覧ページ、TOPページのテーブルもBootstrapを使用して整形してみましょう。</li>
 <li>記事作成ページ、ユーザー作成ページ、ログインページのフォームをデザインしてみましょう。<br>以下のページを参考にしてみてください。<br><a href="http://bootstrap3.cyberlab.info/css/forms-basic.html">http://bootstrap3.cyberlab.info/css/forms-basic.html</a></li>
+<p style="font-size:9px; color:#888">※ ヒント : rubyのコードでHTMLを作成している場合、クラス指定は以下のようになります。</p>
+<pre><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.text_field</span> <span class="hljs-attr">class:</span> <span class="hljs-attr">"class-name"</span> %&gt;</span>
+</pre>
 <li>記事作成ページ、ユーザー作成ページ、ログインページのボタンをデザインしてみましょう。<br>以下のページを参考にしてみてください。<br><a href="http://bootstrap3.cyberlab.info/css/buttons.html">http://bootstrap3.cyberlab.info/css/buttons.html</a></li>
 </ul>
 <br />
