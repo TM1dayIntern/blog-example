@@ -3,9 +3,18 @@
 <h4 id="wow1_1_1" class="wow_head">まず、Railsを起動するサーバーを立ててみましょう。</h4>
 <p>Windows Powershellを開き、下記のコマンドを実行してください。</p>
 <pre><code><span class="hljs-attribute">docker</span> run --privileged -it -p <span class="hljs-number">3000</span>:<span class="hljs-number">3000</span> -v C:\Users\tcmobile\Desktop\1day_intern:/1day_intern --name rails rails:latest
-</code></pre><p>Kitematicを起動し、Containersの"rails"を選択、中央上部にあるEXECボタンを選択してください。<br>Windows Powershellが表示されたら下記のコマンドを入力してください。</p>
-<pre><code><span class="hljs-built_in">cd</span> 1day_intern
-</code></pre><p>ATOMで <em>1day_intern</em> フォルダを開いてみましょう。</p>
+</code></pre>
+<p>
+  起動したDockerへアクセスします。<br/>
+  Windows Powershellに下記コマンドを入力してください。
+</p>
+<pre><code>docker exec -it rails /bin/bash</code></pre>
+<p>
+  本日使用するディレクトリに移動します。<br/>
+  Windows Powershellに下記コマンドを入力してください。
+</p>
+<pre><code><span class="hljs-built_in">cd</span> 1day_intern</code></pre>
+<p>ATOMで <em>1day_intern</em> フォルダを開いてみましょう。</p>
 <br /><h2 id="wow1_2" class="wow_head">Rails基盤作成</h2>
 <h4 id="wow1_2_1" class="wow_head">Railsの枠組みを作成してみましょう。</h4>
 <p>Windows Powershellで下記のコマンドを入力してください。
