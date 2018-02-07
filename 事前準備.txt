@@ -1,0 +1,23 @@
+■事前準備
+  (1) 使用したコンテナを削除する
+    ・powershellを開き下記コマンドを実行
+      docker rm rails
+
+  (2) 使用したデータを削除する
+    ・デスクトップ上にある1DAYインターンフォルダを開く
+    ・blog-exampleファルダを削除する
+
+  (3) 次回使用するコンテナを作成しておく
+    ・コンテナを作成する下記コマンドを実行
+      docker run --privileged -it -p 3000:3000 -v C:\Users\tcmobile\Desktop\1day_intern:/1day_intern --name rails rails:latest
+    ・作成したコンテナを止める
+      上記作成コマンドを実行すると
+      irb(main):001:0>
+      と表示されているはずなので exit と入力してコンテナを終了させる
+
+      正しく終了していると下記コマンドでコンテナが表示される
+      docker ps -a
+
+      (例)
+      CONTAINER ID  IMAGE         COMMAND  CREATED        STATUS                      PORTS  NAMES
+      918fc8da34b3  rails:latest  "irb"    2 minutes ago  Exited (0) 36 seconds ago          rails
