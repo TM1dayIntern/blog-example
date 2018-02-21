@@ -460,11 +460,11 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
   <tbody>
     <tr>
       <td style="text-align:left">名前</td>
-      <td style="text-align:left">50文字以内</td>
+      <td style="text-align:left">50文字以内ならOK</td>
     </tr>
     <tr>
       <td style="text-align:left">メールアドレス</td>
-      <td style="text-align:left">100文字以内 + メールアドレス形式のみ(-@-)</td>
+      <td style="text-align:left">100文字以内 + メールアドレス形式のみ(-@-.-)ならOK</td>
     </tr>
   </tbody>
 </table>
@@ -479,11 +479,11 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
   <tbody>
     <tr>
       <td style="text-align:left">タイトル</td>
-      <td style="text-align:left">100文字以内</td>
+      <td style="text-align:left">100文字以内ならOK</td>
     </tr>
     <tr>
       <td style="text-align:left">コンテンツ</td>
-      <td style="text-align:left">1000文字以内</td>
+      <td style="text-align:left">1000文字以内ならOK</td>
     </tr>
   </tbody>
 </table>
@@ -505,8 +505,8 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 <div style="border: 1px solid #888">
   <%= image_tag 'top_article.png', :size => '1100x400'%>
 </div>
-<p style="font-size:9px; color:#888">
-  *ヒント : 以下の2つのファイルが記事一覧を表示しているファイルになります。<br />
+<p style="font-size:9px; color:#666">
+  *ヒント : 以下の2つのファイルが記事一覧ページ<a href="http://localhost:3000/articles">(http://localhost:3000/articles)</a>を表示しているファイルになります。<br />
   「/app/views/articles/index.html.erb」, 「/app/controllers/articles_controller.rb」
 </p>
 <br />
@@ -545,17 +545,21 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
     <br>
     <a href="http://bootstrap3.cyberlab.info/css/forms-basic.html">http://bootstrap3.cyberlab.info/css/forms-basic.html</a>
   </li>
-  <p style="font-size:9px; color:#888">※ ヒント : rubyのコードでHTMLを作成している場合、クラス指定は以下のようになります。</p>
+  <p style="font-size:9px; color:#666">※ ヒント : rubyのコードでHTMLを作成している場合、クラス指定は以下のようになります。</p>
   <pre><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.text_field</span> <span class="hljs-attr">class:</span> <span class="hljs-attr">"class-name"</span> %&gt;</span>
 </pre>
   <li>記事作成ページ、ユーザー作成ページ、ログインページのボタンをデザインしてみましょう。
-    <br>以下のページを参考にしてみてください。
     <br>
-    <a href="http://bootstrap3.cyberlab.info/css/buttons.html">http://bootstrap3.cyberlab.info/css/buttons.html</a>
+    <a href="http://bootstrap3.cyberlab.info/css/buttons.html">こちらを参考にしてみてください。</a>
   </li>
 </ul>
 <br />
 <p>
-  <strong>最後まで終わってしまった人はBootStrapを使用して、自分好みのサイトにデザインをしてみてください!</strong>
+  <strong>最後まで終わってしまった人はBootStrap、CSSを使用して、自分好みのサイトにデザインをしてみましょう!</strong><br /><br />
+  CSSに関しては以下のページを参考にしてみてください。<br />
+  <a href="http://www.htmq.com/style/">http://www.htmq.com/style/</a>
+</p>
+<p>例えば、文字を赤色、太文字にしたい場合は以下のようにCSSを指定します。
+  <pre><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style="color:#ff0000; font-weight:bold"</span>&gt;</span>赤色太文字<span class="hljs-tag">&lt;/p&gt;</pre>
 </p>
 <br />
