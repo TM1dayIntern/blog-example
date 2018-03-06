@@ -71,14 +71,14 @@ rails g scaffold Article title:<span class="hljs-keyword">string</span> writer:<
 <p>/app/views/users/_form.html.erbで以下を変更してください。</p>
 <pre><code>&lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"field"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.label</span> <span class="hljs-attr">:password_digest</span> %&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.text_field</span> <span class="hljs-attr">:password_digest</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:user_password_digest</span> %&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.text_field</span> <span class="hljs-attr">:password_digest</span> %&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 
 ↓
 
 &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"field"</span>&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.label</span> <span class="hljs-attr">:password</span> %&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.text_field</span> <span class="hljs-attr">:password</span>, <span class="hljs-attr">id:</span> <span class="hljs-attr">:user_password</span> %&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">f.text_field</span> <span class="hljs-attr">:password</span> %&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
 </code></pre>
 <p>/app/controllers/users_controller.rbで以下を変更してください。</p>
@@ -103,73 +103,97 @@ rails g scaffold Article title:<span class="hljs-keyword">string</span> writer:<
 <p>
   <em>「Ctrl」 + cでサーバーを停止します</em>
 </p>
-<p>
-  <strong>URL一覧</strong>
-</p>
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">URL</th>
-      <th style="text-align:left">ページ概要</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000">http://localhost:3000</a>
-      </td>
-      <td style="text-align:left">TOPページ</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/users">http://localhost:3000/users</a>
-      </td>
-      <td style="text-align:left">ユーザ一覧</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/users/:id">http://localhost:3000/users/:id</a>
-      </td>
-      <td style="text-align:left">ユーザー詳細</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/users/new">http://localhost:3000/users/new</a>
-      </td>
-      <td style="text-align:left">ユーザー新規作成</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/users/:id/edit">http://localhost:3000/users/:id/edit</a>
-      </td>
-      <td style="text-align:left">ユーザー編集</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/articles">http://localhost:3000/articles</a>
-      </td>
-      <td style="text-align:left">記事一覧</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/articles/:id">http://localhost:3000/articles/:id</a>
-      </td>
-      <td style="text-align:left">記事詳細</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>
-      </td>
-      <td style="text-align:left">記事作成</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">
-        <a href="http://localhost:3000/articles/:id/edit">http://localhost:3000/articles/:id/edit</a>
-      </td>
-      <td style="text-align:left">記事編集</td>
-    </tr>
-  </tbody>
-</table>
+<script>
+$(function(){
+
+  $('#url-open').on('click', function(){
+    $("#url-open").hide();
+    $("#url-list").show();
+  });
+
+  $('#url-close').on('click', function(){
+    $("#url-open").show();
+    $("#url-list").hide();
+  });
+
+});
+</script>
+<div style="position:fixed; top:0px; right:0px; background-color:#fff; padding:10px; border: 1px solid #888;">
+  <button class="btn btn-default" id="url-open">URL一覧を表示</button>
+  <div id="url-list" style="display:none">
+  <p>
+    <strong>URL一覧</strong>
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">URL</th>
+        <th style="text-align:left">ページ概要</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000">http://localhost:3000</a>
+        </td>
+        <td style="text-align:left">TOPページ</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/users">http://localhost:3000/users</a>
+        </td>
+        <td style="text-align:left">ユーザ一覧</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/users/:id">http://localhost:3000/users/:id</a>
+        </td>
+        <td style="text-align:left">ユーザー詳細</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/users/new">http://localhost:3000/users/new</a>
+        </td>
+        <td style="text-align:left">ユーザー新規作成</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/users/:id/edit">http://localhost:3000/users/:id/edit</a>
+        </td>
+        <td style="text-align:left">ユーザー編集</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/articles">http://localhost:3000/articles</a>
+        </td>
+        <td style="text-align:left">記事一覧</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/articles/:id">http://localhost:3000/articles/:id</a>
+        </td>
+        <td style="text-align:left">記事詳細</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/articles/new">http://localhost:3000/articles/new</a>
+        </td>
+        <td style="text-align:left">記事作成</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">
+          <a href="http://localhost:3000/articles/:id/edit">http://localhost:3000/articles/:id/edit</a>
+        </td>
+        <td style="text-align:left">記事編集</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    ※[:id]には具体的な数字が入ります。
+  </p>
+  <button class="btn btn-default" id="url-close">URL一覧を閉じる</button>
+  </div>
+</div>
 <br />
 <h2 id="wow1_6" class="wow_head">TOPページ作成</h2>
 <h4 id="wow1_6_1" class="wow_head">現在TOPページ設定されていないのでTOPページを設定してみましょう。</h4>
@@ -413,6 +437,7 @@ private
   @articles = Article.getArticles(signed_in?)
 <span class="hljs-keyword">end</span>
 </code></pre>
+<br />
 <p>会員限定機能を確認してみましょう。
   <br>Windows Powershellで下記のコマンドを実行し、Railsサーバーを起動させ、
   <a href="http://localhost:3000">http://localhost:3000</a>にアクセスしてください。
@@ -425,14 +450,16 @@ private
 <br />
 <h1>チャレンジ問題</h1>
 <h2 id="wow1_10" class="wow_head">バリデーション</h2>
-<h4 id="wow1_10_1" class="wow_head">今フォームが空の状態でも登録できてしまうのでバリデーションを設定しましょう。</h4>
+<h4 id="wow1_10_1" class="wow_head">今はフォームが空の状態でも登録できてしまうのでバリデーションを設定しましょう。</h4>
 <p>バリデーションというのはフォームに制約を追加することをいいます。
   <br />会員登録などで必須項目を空欄にすると赤字で怒られたりするアレです。
 </p>
 <p>実際にユーザーをname, emailが空の状態で、記事をtitle, contentsが空の状態で作成してみましょう。</p>
+<br />
 <p>登録できてしまったと思います。
   <br />以下のコードを追加し、登録できないようにしてみましょう。
 </p>
+<br />
 <p>/app/models/article.rbの
   <code>class Article &lt; ApplicationRecord</code>の後に下記を追加してください。
   <br>タイトルとコンテンツが空の状態で登録ができないようにしています。
@@ -447,7 +474,8 @@ validates <span class="hljs-symbol">:contents</span>, <span class="hljs-symbol">
 <pre><code>validates <span class="hljs-symbol">:name</span>, <span class="hljs-symbol">presence:</span><span class="hljs-literal">true</span>
 validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">presence:</span> <span class="hljs-literal">true</span>
 </code></pre>
-<p>では、もう一度ユーザーをname, emailが空の状態で、記事をtitle, contentsが空の状態で作成してみましょう。</p>
+<p>では、もう一度ユーザーをname, emailが空の状態で、記事をtitle, contentsが空の状態で作成してみましょう。<br /><br />今度は記事、ユーザーが作成できないはずです。</p><br />
+
 <h4 id="wow1_10_1_1" class="wow_head">ここまでできてしまった人は、以下のバリデーションを実装してみてください。</h4>
 <h4 id="wow1_10_2" class="wow_head">User</h4>
 <table>
@@ -498,16 +526,16 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 </h4>
 <p>
   以下の2つのファイルを修正する必要があります。<br />
-  「app/views/index/index.html.erb」,「/app/controllers/index_controller.rb」
+  「app/views/index/index.html.erb」
 </p>
 <br />
 <p>こんな感じです。</p>
 <div style="border: 1px solid #888">
   <%= image_tag 'top_article.png', :size => '1100x400'%>
 </div>
-<p style="font-size:9px; color:#666">
+<p style="font-size:12px; color:#888">
   *ヒント : 以下の2つのファイルが記事一覧ページ<a href="http://localhost:3000/articles">(http://localhost:3000/articles)</a>を表示しているファイルになります。<br />
-  「/app/views/articles/index.html.erb」, 「/app/controllers/articles_controller.rb」
+  「/app/views/articles/index.html.erb」
 </p>
 <br />
 <h2 id="wow1_12" class="wow_head">デザイン</h2>
@@ -519,7 +547,7 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 <pre><code>&lt;table <span class="hljs-keyword">class</span>=<span class="hljs-string">"table"</span>&gt;
 </code></pre>
 <p>
-  のように変更すると、テーブルのデザインをBootstrapが勝手にやってくれます。<br /><br />
+  のように変更すると、テーブルのデザインをBootstrapが勝手にやってくれます。<br /><br /><br />
   では実際に試してみましょう。
 </p>
 <p>/app/views/layouts/application.html.erbの
@@ -531,27 +559,26 @@ validates <span class="hljs-symbol">:email</span>, <span class="hljs-symbol">pre
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre>
-<p>記事一覧ページのテーブルの表示を綺麗にしたいと思います。 /app/views/articles/index.html.erbの
+<br />
+<p>では記事一覧ページのテーブルの表示を綺麗にしたいと思います。 /app/views/articles/index.html.erbの
   <code>&lt;table&gt;</code>に"table"というクラス名を追加します。
 </p>
 <pre><code>&lt;table <span class="hljs-keyword">class</span>=<span class="hljs-string">"table"</span>&gt;
 </code></pre>
-<p>記事一覧ページにアクセスしてみてください。 記事一覧が整形されていると思います。</p>
+<p>記事一覧ページにアクセスしてみてください。 記事一覧が整形されていると思います。</p><br />
 <h4 id="wow1_12_2_1" class="wow_head">以下のデザインに挑戦してみよう</h4>
 <ul>
-  <li>ユーザー一覧ページ、TOPページのテーブルもBootstrapを使用して整形してみましょう。</li>
-  <li>記事作成ページ、ユーザー作成ページ、ログインページのフォームをデザインしてみましょう。
-    <br>以下のページを参考にしてみてください。
-    <br>
+  <li style="font-size:14px; font-style:oblique">ユーザー一覧ページ、TOPページのテーブルもBootstrapを使用して整形してみましょう。</li><br />
+  <li style="font-size:14px; font-style:oblique">記事作成ページ、ユーザー作成ページ、ログインページのフォームをデザインしてみましょう。</li>
+    以下のページを参考にしてみてください。<br />
     <a href="http://bootstrap3.cyberlab.info/css/forms-basic.html">http://bootstrap3.cyberlab.info/css/forms-basic.html</a>
-  </li>
-  <p style="font-size:9px; color:#666">※ ヒント : rubyのコードでHTMLを作成している場合、クラス指定は以下のようになります。</p>
+  <p style="font-size:12px; color:#888">※ ヒント : rubyのコードでHTMLを作成している場合、クラス指定は以下のようになります。</p>
   <pre><span class="hljs-tag">&lt;<span class="hljs-name">%=</span> <span class="hljs-attr">form.text_field</span> <span class="hljs-attr">class:</span> <span class="hljs-attr">"class-name"</span> %&gt;</span>
 </pre>
-  <li>記事作成ページ、ユーザー作成ページ、ログインページのボタンをデザインしてみましょう。
-    <br>
-    <a href="http://bootstrap3.cyberlab.info/css/buttons.html">こちらを参考にしてみてください。</a>
-  </li>
+<br />
+  <li style="font-size:14px; font-style:oblique">記事作成ページ、ユーザー作成ページ、ログインページのボタンをデザインしてみましょう。</li>
+    以下のページを参考にしてみてください。<br />
+    <a href="http://bootstrap3.cyberlab.info/css/buttons.html">http://bootstrap3.cyberlab.info/css/buttons.html</a>
 </ul>
 <br />
 <p>
